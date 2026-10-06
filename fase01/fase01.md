@@ -1,4 +1,4 @@
-
+# Radiografía de una partida de NevWorld
 
 | Dato de mi partida | Resultado |
 | --- | --- |
@@ -13,21 +13,32 @@
 | Tick mínimo y tick máximo | mín 0, máx 532228|
 | Resultado de las validaciones | OK |
 
-Termina la ficha respondiendo con tus palabras:
+## Preguntas
 
-1. ¿Qué te permite afirmar el recuento sobre tu partida? ¿Por qué el tipo más frecuente no tiene que ser el más importante?
+### 1. ¿Qué te permite afirmar el recuento sobre tu partida? ¿Por qué el tipo más frecuente no tiene que ser el más importante?
+
 El recuento se realiza por una operación de value_count sobre los datos raw. 
+
 La importancia del evento no la define su frecuencia, sino su magnitud. Por ejemplo, una interacción social no es más significativa para la dinámica que una muerte.
-2. ¿Por qué una celda vacía no significa necesariamente que el registro esté mal?
+
+### 2. ¿Por qué una celda vacía no significa necesariamente que el registro esté mal?
+
 Porque cada registro puede diferir en sus campos en función de su tipo. Por ejemplo, la construcción de un edificio refleja sus coordenadas, lo cual es específico de este evento.
-3. ¿Qué sabes ahora del archivo y qué pregunta sobre tu partida necesitaría un análisis posterior?
+
+### 3. ¿Qué sabes ahora del archivo y qué pregunta sobre tu partida necesitaría un análisis posterior?
+
 Conozco a grandes rasgos los eventos que se van produciendo, las muertes de los personajes, cómo van cambiando los recursos. 
-Lo siguiente sería determinar qué eventos son más relevantes y cómo correlacionan entre sí. 
+
+Lo siguiente sería determinar qué eventos son más relevantes y cómo correlacionan entre sí.
+
+## Ejecución
 
 Ejecuta desde la raíz de `bigdata-game`, con el entorno de Python que tenga pandas instalado:
 
 ```powershell
 python NevWorld/fase01/01_radiografia.py
 ```
+
+## Entrega
 
 **Entrega:** Cread un repositorio en Github con una carpeta llamada NevWorld, y una subcarpeta llamada fase01, en la que incluiréis el script y la ficha en un archivo de texto, con tus respuestas y resultados reales. Si alguna validación falla, anota el error y explica qué comprobación no se cumple; no alteres el RAW para hacerla pasar.
