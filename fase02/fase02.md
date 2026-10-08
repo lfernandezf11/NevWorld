@@ -13,7 +13,7 @@ Completa esta ficha **antes de escribir la llamada a `event_table()`**:
 | ¿Qué presa aparece registrada? | `prey_type` | Se traduce como 'tipo de presa' |
 | ¿Cuándo ocurrió? | `tick`| Tick es un contador de tiempo de la simulación |
 | ¿A qué partida pertenece? | `run_id`| Es el identificador único de la ejecución recogida |
-| ¿Cómo localizo el evento original sin confundirlo con otro? | `event-index` | Identifica la posición del evento dentro de la partida |
+| ¿Cómo localizo el evento original sin confundirlo con otro? | `run_id` y `event-index` | Identifica la partida y la posición del evento dentro de la partida |
 
 Explica también por qué `activity`, `food_stock` y `amount_delta` no son necesarios para este parte. ¿Permite el evento saber por sí solo cuánta comida produjo la cacería?
 
@@ -21,29 +21,7 @@ Estos campos no son necesarios porque no atañen a este tipo de evento, sino a `
 
 El evento por sí solo no permite saber qué cantidad de comida se ha producido.
 
-## 2. Construye la tabla
 
-Crea `scripts/actividades/02_parte_caza.py` dentro de `bigdata-game`. Reutiliza la lectura del JSONL y la función `event_table()` del tema, copiando las partes necesarias a este script.
-
-El programa debe:
-
-1. Leer el RAW y crear `data/processed` si hace falta.
-2. Seleccionar únicamente cacerías completadas y los campos justificados en tu ficha.
-3. Conservar `run_id`, `event_index` y `tick`, que la función añade automáticamente.
-4. Añadir `simulation_day` mediante `tick // 12000`.
-5. Guardar `data/processed/hunts.csv` sin exportar el índice de pandas.
-6. Mostrar la ruta del archivo generado y su número de filas.
-
-**Condición adicional:** el CSV debe tener las mismas cabeceras aunque no haya cacerías. Revisa estas dos partes de la función del tema: el filtro de columnas `available` y el `if not table.empty`. Una columna ausente de todo el JSONL y una tabla sin filas son situaciones distintas.
-
-Puedes usar esta operación para fijar las columnas de salida:
-
-```python
-# Conserva ese orden y crea con valores vacíos las columnas que falten.
-table = table.reindex(columns=columnas_de_salida)
-```
-
-Si hay eventos de caza pero falta un campo obligatorio, debes avisar con una validación; añadir la columna vacía no repara el dato.
 
 ## 3. Demuestra que funciona
 
