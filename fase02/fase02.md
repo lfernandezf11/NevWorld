@@ -21,17 +21,13 @@ Estos campos no son necesarios porque no atañen a este tipo de evento, sino a `
 
 El evento por sí solo no permite saber qué cantidad de comida se ha producido.
 
-
-
 ## 3. Demuestra que funciona
-
-
-
 Abre el CSV exportado. Elige dos filas —o todas si hay menos de dos— y localiza sus eventos originales mediante `run_id` y `event_index`. Comprueba aldeano, presa y tick. Anota la comparación; si no hay filas, explica qué has podido comprobar y qué no.
 
+Los datos RAW y los procesados coinciden.
 
 ```powershell
-python scripts/actividades/02_parte_caza.py
+python NevWorld/fase02/02_parte_caza.py
 ```
 
 ## 4. Detecta las conclusiones que los datos no sostienen
@@ -39,21 +35,23 @@ python scripts/actividades/02_parte_caza.py
 Responde justificando cada decisión:
 
 1. «Hay seis filas, por tanto hay seis cazadores distintos». ¿Es necesariamente cierto?
+
+Un único cazador puede completar varias cazas.
+
 2. «Una fila indica que ese aldeano estuvo cazando durante todo el día». ¿Qué registra realmente la fila?
+
+La fila registra que una caza fue completada, no el tiempo de la actividad.
+
 3. «Borro del DataFrame original todas las filas con algún `NaN` y después selecciono las cacerías». ¿Por qué puede desaparecer información válida?
+
+NaN no implica necesariamente que el dato sea inválido o incorrecto.
+
 4. «El CSV está vacío, así que nadie intentó cazar». ¿Qué puedes afirmar realmente sobre el registro?
 
+Nadie completó una cacería, pero no sabemos si intentó cazar.
+
 ## Ampliación para l@s más rápid@s: obras que no llegaron a terminar
-
-Diseña `construction_incidents.csv` para consultar **dónde y cuándo se registraron obras abandonadas o caducadas, conservando el motivo registrado**.
-
-Investiga `construction_abandoned` y `construction_expired`. Esta vez necesitas dos tipos de evento en una tabla y debes conservar `type` para distinguirlos. Comprueba en el RAW si esos eventos incluyen `building_id` antes de darlo por supuesto.
-
-Pista para filtrar varios tipos:
-
-```python
-mask = df['type'].isin(['TIPO_A', 'TIPO_B'])
-```
+Incluyo `cell_x` y `cell_y` porque son las coordenadas de las edificaciones y son propias de estos eventos. 
 
 Justifica las columnas, exporta sin índice y verifica el recuento. Explica por qué dos registros con las mismas coordenadas no demuestran, por sí solos, que se trate de la misma obra.
 

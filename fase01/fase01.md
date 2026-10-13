@@ -38,7 +38,3 @@ Ejecuta desde la raíz de `bigdata-game`, con el entorno de Python que tenga pan
 ```powershell
 python NevWorld/fase01/01_radiografia.py
 ```
-
-## Entrega
-
-**Entrega:** Cread un repositorio en Github con una carpeta llamada NevWorld, y una subcarpeta llamada fase01, en la que incluiréis el script y la ficha en un archivo de texto, con tus respuestas y resultados reales. Si alguna validación falla, anota el error y explica qué comprobación no se cumple; no alteres el RAW para hacerla pasar.
