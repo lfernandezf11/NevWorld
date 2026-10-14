@@ -1,0 +1,6 @@
+metric,value
+hunt_events,42.0
+food_change_events,203.0
+food_gains,404.0
+food_reductions,234.0
+food_net_change,170.0
