@@ -48,9 +48,8 @@ for name, expected_hash in expected_hashes.items():
         continue
 
     size = Path('data/intercambio/recibido') / name
-    size_bytes = size.stat().st_size
 
-    print(f'Archivo: {name}, Tamaño: {size_bytes} bytes')
+    print(f'Archivo: {name}, Tamaño: {size.stat().st_size} bytes')
     print(f'Huella esperada: {expected_hash}')
     print(f'Huella recibida: {received_hash}')
     if expected_hash == received_hash:
